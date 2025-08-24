@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>( Welcome to My Totally Rad Homepage! (</title>
+    <style>
+        body {
+            background: 
+                radial-gradient(circle at 20% 50%, #ff0080 12%, transparent 13%),
+                radial-gradient(circle at 40% 20%, #ffff00 10%, transparent 11%),
+                radial-gradient(circle at 60% 80%, #00ffff 8%, transparent 9%),
+                radial-gradient(circle at 80% 60%, #ff6600 15%, transparent 16%),
+                linear-gradient(45deg, #ff69b4, #ff1493, #da70d6, #ee82ee, #ff0080, #ffff00);
+            background-size: 100px 100px, 150px 150px, 80px 80px, 120px 120px, 400% 400%;
+            animation: rainbow 2s ease infinite, sparkleMove 3s linear infinite;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #000;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+                radial-gradient(2px 2px at 40px 70px, #ffff00, transparent),
+                radial-gradient(1px 1px at 90px 40px, #ff69b4, transparent),
+                radial-gradient(1px 1px at 130px 80px, #00ffff, transparent),
+                radial-gradient(2px 2px at 160px 30px, #fff, transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            animation: sparkleFloat 4s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes sparkleFloat {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            100% { transform: translateY(-20px) rotate(360deg); opacity: 1; }
+        }
+
+        @keyframes sparkleMove {
+            0% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 50%; }
+            100% { background-position: 100% 100%, -100% 100%, 100% -100%, -100% -100%, 100% 50%; }
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 50%; }
+            33% { background-position: 50% 50%, 20% 80%, 80% 20%, 30% 70%, 50% 50%; }
+            66% { background-position: 100% 0%, 40% 60%, 60% 40%, 60% 30%, 100% 50%; }
+            100% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 50%; }
+        }
+
+        .blink {
+            animation: blink-animation 0.5s steps(5, start) infinite, neonGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes blink-animation {
+            to {
+                visibility: hidden;
+            }
+        }
+
+        @keyframes neonGlow {
+            0% { 
+                text-shadow: 0 0 5px #ff1493, 0 0 10px #ff1493, 0 0 15px #ff1493, 0 0 20px #ff69b4;
+                color: #fff;
+            }
+            100% { 
+                text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff1493, 0 0 40px #ff1493;
+                color: #ffff00;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border: 8px double #ff69b4;
+            padding: 20px;
+            box-shadow: 
+                0 0 30px #ff1493,
+                inset 0 0 30px rgba(255, 105, 180, 0.3),
+                0 0 60px #ff69b4,
+                0 0 100px #ff1493;
+            position: relative;
+            z-index: 2;
+            animation: containerGlow 3s ease-in-out infinite alternate;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #ff0080, #ffff00, #00ffff, #ff6600, #ff69b4);
+            border-radius: 15px;
+            z-index: -1;
+            animation: containerBorderSpin 4s linear infinite;
+        }
+
+        @keyframes containerGlow {
+            0% { 
+                box-shadow: 
+                    0 0 30px #ff1493,
+                    inset 0 0 30px rgba(255, 105, 180, 0.3),
+                    0 0 60px #ff69b4,
+                    0 0 100px #ff1493;
+            }
+            100% { 
+                box-shadow: 
+                    0 0 50px #ffff00,
+                    inset 0 0 50px rgba(255, 255, 0, 0.3),
+                    0 0 100px #00ffff,
+                    0 0 150px #ff6600;
+            }
+        }
+
+        @keyframes containerBorderSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff1493;
+            text-shadow: 
+                0 0 10px #ffff00,
+                0 0 20px #ff69b4,
+                0 0 30px #ff1493,
+                0 0 40px #ff0080,
+                3px 3px 0px #ffb6c1;
+            font-size: 3em;
+            margin-bottom: 10px;
+            animation: titlePulse 2s ease-in-out infinite alternate, titleBounce 3s ease-in-out infinite;
+        }
+
+        @keyframes titlePulse {
+            0% { 
+                transform: scale(1);
+                text-shadow: 
+                    0 0 10px #ffff00,
+                    0 0 20px #ff69b4,
+                    0 0 30px #ff1493,
+                    0 0 40px #ff0080,
+                    3px 3px 0px #ffb6c1;
+            }
+            100% { 
+                transform: scale(1.1);
+                text-shadow: 
+                    0 0 20px #00ffff,
+                    0 0 30px #ffff00,
+                    0 0 40px #ff6600,
+                    0 0 50px #ff1493,
+                    5px 5px 0px #ff69b4;
+            }
+        }
+
+        @keyframes titleBounce {
+            0%, 100% { transform: translateY(0px) rotate(-1deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+
+        .sparkle {
+            color: #ff69b4;
+            font-size: 1.2em;
+            animation: sparkleRotate 2s linear infinite, sparkleColor 1s ease-in-out infinite alternate;
+            display: inline-block;
+        }
+
+        @keyframes sparkleRotate {
+            0% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(90deg) scale(1.2); }
+            50% { transform: rotate(180deg) scale(1); }
+            75% { transform: rotate(270deg) scale(1.3); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        @keyframes sparkleColor {
+            0% { color: #ff69b4; text-shadow: 0 0 10px #ff69b4; }
+            25% { color: #ffff00; text-shadow: 0 0 15px #ffff00; }
+            50% { color: #00ffff; text-shadow: 0 0 20px #00ffff; }
+            75% { color: #ff6600; text-shadow: 0 0 15px #ff6600; }
+            100% { color: #ff1493; text-shadow: 0 0 25px #ff1493; }
+        }
+
+        .section {
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(255,255,0,0.3) 15%, transparent 16%),
+                radial-gradient(circle at 80% 80%, rgba(0,255,255,0.3) 12%, transparent 13%),
+                radial-gradient(circle at 40% 40%, rgba(255,105,180,0.4) 18%, transparent 19%),
+                linear-gradient(135deg, #ffb6c1, #ffc0cb, #ff69b4, #ffb6c1);
+            border: 5px ridge #ff69b4;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 
+                0 0 20px #ff1493,
+                inset 0 0 20px rgba(255,255,255,0.5),
+                0 0 40px #ff69b4;
+            animation: sectionPulse 4s ease-in-out infinite alternate;
+            position: relative;
+        }
+
+        .section::before {
+            content: '✨';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 2em;
+            animation: sparkleFloat 3s ease-in-out infinite;
+            z-index: 3;
+        }
+
+        .section::after {
+            content: '💫';
+            position: absolute;
+            bottom: -10px;
+            left: -10px;
+            font-size: 1.5em;
+            animation: sparkleFloat 2s ease-in-out infinite reverse;
+            z-index: 3;
+        }
+
+        @keyframes sectionPulse {
+            0% { 
+                transform: scale(1);
+                box-shadow: 
+                    0 0 20px #ff1493,
+                    inset 0 0 20px rgba(255,255,255,0.5),
+                    0 0 40px #ff69b4;
+            }
+            100% { 
+                transform: scale(1.02);
+                box-shadow: 
+                    0 0 30px #ffff00,
+                    inset 0 0 30px rgba(255,255,0,0.3),
+                    0 0 60px #00ffff;
+            }
+        }
+
+        .section h2 {
+            color: #d63384;
+            text-decoration: underline;
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .interest-card {
+            background: #fff;
+            border: 2px solid #ff69b4;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 5px 5px 10px rgba(255, 20, 147, 0.3);
+        }
+
+        .interest-card h3 {
+            color: #d63384;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+
+        .emoji {
+            font-size: 2.5em;
+            margin: 10px 0;
+            animation: emojiSpin 3s linear infinite, emojiGlow 2s ease-in-out infinite alternate;
+            display: inline-block;
+            text-shadow: 0 0 20px #fff, 0 0 30px #ff69b4, 0 0 40px #ffff00;
+        }
+
+        @keyframes emojiSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(90deg) scale(1.3); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            75% { transform: rotate(270deg) scale(1.4); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        @keyframes emojiGlow {
+            0% { 
+                text-shadow: 0 0 20px #fff, 0 0 30px #ff69b4, 0 0 40px #ffff00;
+                filter: brightness(1) saturate(1);
+            }
+            100% { 
+                text-shadow: 0 0 30px #00ffff, 0 0 40px #ff1493, 0 0 50px #ff6600;
+                filter: brightness(1.5) saturate(2);
+            }
+        }
+
+        .visitor-counter {
+            background: #000;
+            color: #00ff00;
+            padding: 10px;
+            text-align: center;
+            font-family: monospace;
+            border: 2px inset #666;
+            margin: 20px 0;
+        }
+
+        .under-construction {
+            text-align: center;
+            background: #ffff00;
+            border: 3px dashed #ff0000;
+            padding: 15px;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8em;
+            color: #666;
+        }
+
+        .rainbow-text {
+            background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+
+        marquee {
+            background: linear-gradient(90deg, #ff69b4, #ff1493, #ffff00, #00ffff, #ff6600, #ff69b4);
+            background-size: 400% 100%;
+            animation: marqueeBackground 3s linear infinite;
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border: 4px double #d63384;
+            box-shadow: 
+                0 0 20px #ff1493,
+                inset 0 0 20px rgba(255,255,255,0.3);
+            text-shadow: 
+                0 0 10px #000,
+                0 0 20px #ff69b4,
+                2px 2px 4px #000;
+        }
+
+        @keyframes marqueeBackground {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .geocities-button {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            border: 2px outset #ff69b4;
+            color: white;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 5px;
+            font-family: "Comic Sans MS", cursive;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+        }
+
+        .geocities-button:hover {
+            background: linear-gradient(45deg, #ff1493, #d63384);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>(< Welcome to My Awesome Homepage! <(</h1>
+        
+        <div class="under-construction">
+            <h2 class="blink">=� UNDER CONSTRUCTION =�</h2>
+            <p>This site is totally being worked on! Check back soon for more awesome stuff!</p>
+        </div>
+
+        <marquee behavior="scroll" direction="left">
+            <span class="sparkle">( Welcome to my rad corner of the internet! ( Thanks for visiting! ( Don't forget to sign my guestbook! (</span>
+        </marquee>
+
+        <div class="visitor-counter">
+            <strong>VISITOR COUNTER:</strong> You are visitor #001337 to this site!
+        </div>
+
+        <div class="section">
+            <h2 class="rainbow-text">About Me</h2>
+            <p>Hey there, internet surfer! Welcome to my totally awesome personal homepage! I'm just a cool person who loves all things cute, colorful, and creative. This site is my little corner of cyberspace where I share all my favorite things!</p>
+        </div>
+
+        <div class="section">
+            <h2>< My Favorite Things <</h2>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <h3>=� Pink Everything</h3>
+                    <div class="emoji">=�=�=�</div>
+                    <p>Pink is literally the best color ever! It's so pretty and makes everything look magical and dreamy!</p>
+                </div>
+
+                <div class="interest-card">
+                    <h3>=6 Adorable Puppies</h3>
+                    <div class="emoji">==>�=)</div>
+                    <p>Puppies are the cutest things on Earth! Their little paws and wagging tails make my heart melt every time!</p>
+                </div>
+
+                <div class="interest-card">
+                    <h3>=1 Black Cats</h3>
+                    <div class="emoji">==8=�</div>
+                    <p>Black cats are so mysterious and elegant! They're actually super lucky and make the best companions!</p>
+                </div>
+
+                <div class="interest-card">
+                    <h3>< Rainbow Magic</h3>
+                    <div class="emoji"><(<�</div>
+                    <p>Rainbows make everything better! All those beautiful colors together create pure happiness and joy!</p>
+                </div>
+
+                <div class="interest-card">
+                    <h3><6 Takis Chips</h3>
+                    <div class="emoji"><6=%=</div>
+                    <p>OMG Takis are THE BEST snack ever! Spicy, crunchy, and totally addictive. I could eat them all day!</p>
+                </div>
+
+                <div class="interest-card">
+                    <h3>>� Cute Plushies</h3>
+                    <div class="emoji">>�>�=;</div>
+                    <p>My room is full of the softest, cutest plushies! They give the best hugs and make everything cozy!</p>
+                </div>
+
+                <div class="interest-card">
+                    <h3><� Digital Art</h3>
+                    <div class="emoji">=�(<�</div>
+                    <p>I love creating digital art! It's so cool how you can make amazing things with just a computer and creativity!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><� My Art Gallery</h2>
+            <p class="blink">( COMING SOON (</p>
+            <p>I'm working on uploading all my awesome digital artwork! It's gonna be totally radical when it's ready!</p>
+        </div>
+
+        <div class="section">
+            <h2>=� Guestbook</h2>
+            <p>Please sign my guestbook and let me know you were here! I love making new friends on the world wide web!</p>
+            <p class="blink">=� Guestbook feature under construction! =�</p>
+        </div>
+
+        <div class="section">
+            <h2>= Cool Links</h2>
+            <p>Check out these totally awesome sites:</p>
+            <a href="#" class="geocities-button">My Friend's Homepage</a>
+            <a href="#" class="geocities-button">Puppy Pictures</a>
+            <a href="#" class="geocities-button">Cat Lovers United</a>
+            <a href="#" class="geocities-button">Digital Art Community</a>
+        </div>
+
+        <marquee behavior="scroll" direction="right">
+            <span class="rainbow-text">( Thanks for visiting my homepage! Come back soon! (</span>
+        </marquee>
+
+        <div class="footer">
+            <p>This page was last updated on: <span class="blink">August 24, 2025</span></p>
+            <p>Best viewed in Netscape Navigator 4.0 or Internet Explorer 5.0!</p>
+            <p>� 2025 My Awesome Homepage - Made with lots of d and HTML!</p>
+        </div>
+    </div>
+
+    <script>
+        // Add some 90s JavaScript magic
+        function showAlert() {
+            alert("Welcome to my totally rad homepage! <");
+        }
+        
+        // Change the visitor counter randomly
+        function updateVisitorCount() {
+            const counter = document.querySelector('.visitor-counter');
+            const randomCount = Math.floor(Math.random() * 10000) + 1000;
+            counter.innerHTML = `<strong>VISITOR COUNTER:</strong> You are visitor #${randomCount.toString().padStart(6, '0')} to this site!`;
+        }
+        
+        // Update counter every 30 seconds for that authentic 90s feel
+        setInterval(updateVisitorCount, 30000);
+        
+        // Create floating sparkles
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.innerHTML = '✨';
+            sparkle.style.position = 'fixed';
+            sparkle.style.left = Math.random() * window.innerWidth + 'px';
+            sparkle.style.top = Math.random() * window.innerHeight + 'px';
+            sparkle.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            sparkle.style.color = ['#ff69b4', '#ffff00', '#00ffff', '#ff6600', '#ff1493'][Math.floor(Math.random() * 5)];
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.zIndex = '1000';
+            sparkle.style.textShadow = '0 0 20px currentColor';
+            sparkle.style.animation = 'sparkleFloat 3s ease-out forwards';
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 3000);
+        }
+        
+        // Add floating rainbow hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💖';
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = window.innerHeight + 'px';
+            heart.style.fontSize = (Math.random() * 30 + 15) + 'px';
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '999';
+            heart.style.textShadow = '0 0 30px #ff69b4';
+            document.body.appendChild(heart);
+            
+            const heartAnim = heart.animate([
+                { transform: 'translateY(0px) rotate(0deg)', opacity: 1 },
+                { transform: `translateY(-${window.innerHeight + 100}px) rotate(360deg)`, opacity: 0 }
+            ], { duration: 4000, easing: 'linear' });
+            
+            heartAnim.onfinish = () => heart.remove();
+        }
+        
+        // Create sparkles every 300ms for maximum bling
+        setInterval(createSparkle, 300);
+        
+        // Create hearts every 1.5 seconds
+        setInterval(createHeart, 1500);
+        
+        // Make everything more interactive
+        document.addEventListener('click', function(e) {
+            for(let i = 0; i < 8; i++) {
+                setTimeout(() => createSparkle(), i * 50);
+            }
+        });
+        
+        // Show welcome alert after page loads
+        window.onload = function() {
+            setTimeout(showAlert, 1000);
+        };
+    </script>
+</body>
+</html>
